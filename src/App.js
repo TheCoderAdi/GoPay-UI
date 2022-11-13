@@ -5,18 +5,36 @@ import Signup from "./components/Signup";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import BuyCurrency from "./pages/BuyCurrency";
+import { useState } from "react";
 
 function App() {
+  const [login, setLogin] = useState(true);
+  setTimeout(() => {
+    setLogin(true);
+  }, 6000);
   return (
     <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/buy-currency" element={<BuyCurrency />} />
-      </Routes>
-      <Footer />
+      {login ? (
+        <>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/buy-currency" element={<BuyCurrency />} />
+          </Routes>
+        </>
+      ) : (
+        <>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+          </Routes>
+          <Footer />
+        </>
+      )}
     </Router>
   );
 }

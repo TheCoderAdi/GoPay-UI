@@ -7,6 +7,12 @@ import { Button } from "@mui/material";
 
 const Navbar = () => {
   const [Mobile, setMobile] = useState(false);
+  const [login, setLogin] = useState(false);
+
+  setTimeout(() => {
+    setLogin(true);
+  }, 6000);
+
   return (
     <>
       <nav className="navbar">
@@ -26,21 +32,25 @@ const Navbar = () => {
           className={Mobile ? "nav-links-mobile" : "nav-links"}
           onClick={() => setMobile(false)}
         >
-          <Link to="/buy-currency">
-            <li>Buy Currency</li>
-          </Link>
-          <Link to="/spotcash">
-            <li>Spot Cash</li>
-          </Link>
-          <Link to="/wallet">
-            <li>Wallet</li>
-          </Link>
-          <Link to="/local-store-finder">
-            <li>Local Store Finder</li>
-          </Link>
-          <Link to="/customer-support">
-            <li>Customer Support</li>
-          </Link>
+          {login && (
+            <>
+              <Link to="/buy-currency">
+                <li>Buy Currency</li>
+              </Link>
+              <Link to="/spotcash">
+                <li>Spot Cash</li>
+              </Link>
+              <Link to="/wallet">
+                <li>Wallet</li>
+              </Link>
+              <Link to="/local-store-finder">
+                <li>Local Store Finder</li>
+              </Link>
+              <Link to="/customer-support">
+                <li>Customer Support</li>
+              </Link>
+            </>
+          )}
           <Link to="/login">
             <li>
               <Button variant="contained" sx={{ backgroundColor: "#ff7113" }}>
