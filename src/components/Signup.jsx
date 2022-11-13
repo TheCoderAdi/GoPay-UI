@@ -1,5 +1,6 @@
-import { Button } from "@mui/material";
+import { Avatar, Button, Typography } from "@mui/material";
 import React, { useState } from "react";
+import AddCircleIcon from "@mui/icons-material/AddCircle";
 import "./signup.css";
 
 const Signup = () => {
@@ -34,10 +35,10 @@ const Signup = () => {
     },
     {
       id: 3,
-      name: "pancard",
+      name: "identitycard",
       type: "text",
-      placeholder: "Pan card",
-      label: "Pan card",
+      placeholder: "Identity Card",
+      label: "Identity Card",
     },
     {
       id: 4,
@@ -70,7 +71,12 @@ const Signup = () => {
   return (
     <div className="app">
       <form className="signUpForm" onSubmit={handleSubmit}>
-        <h1>Register</h1>
+        <Avatar sx={{ m: 1, bgcolor: "rgb(77,1,77)" }}>
+          <AddCircleIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5">
+          Register
+        </Typography>
         {inputs.map((input) => (
           <FormInput
             key={input.id}
@@ -85,7 +91,7 @@ const Signup = () => {
           fullWidth
           sx={{
             backgroundColor: " rgb(77, 1, 77)",
-            marginTop: "9px",
+            mt: 3,
           }}
         >
           Submit

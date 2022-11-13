@@ -11,17 +11,22 @@ const Navbar = () => {
     <>
       <nav className="navbar">
         <Link to="/">
-          <img src={logo} alt="logo" width={108} />
+          <img
+            src={logo}
+            alt="logo"
+            style={{
+              width: "50px",
+              aspectRatio: "1/1",
+              marginLeft: "1rem",
+              borderRadius: "48px 45px 8px 8px ",
+            }}
+          />
         </Link>
-        {/*
-        if large screen ma xa bhane Mobile add huxa
-        if mobile screen ma xa bhane nav-links-mobile add huxa
-        */}
         <ul
           className={Mobile ? "nav-links-mobile" : "nav-links"}
           onClick={() => setMobile(false)}
         >
-          <Link to="/buycurrency">
+          <Link to="/buy-currency">
             <li>Buy Currency</li>
           </Link>
           <Link to="/spotcash">

@@ -21,7 +21,7 @@ const Login = () => {
     <ThemeProvider theme={theme}>
       <div
         style={{
-          background: "linear-gradient(rgba(255, 255, 255, 0.7), #ff7113)",
+          background: "#f4f0e8",
           minHeight: "90vh",
           display: "flex",
           justifyContent: "center",
@@ -47,7 +47,7 @@ const Login = () => {
               alignItems: "center",
             }}
           >
-            <Avatar sx={{ m: 1, bgcolor: "#ff7113" }}>
+            <Avatar sx={{ mt: 1, bgcolor: "rgb(77,1,77)" }}>
               <LockOutlinedIcon />
             </Avatar>
             <Typography component="h1" variant="h5">
@@ -78,13 +78,17 @@ const Login = () => {
                 type="submit"
                 fullWidth
                 variant="contained"
-                sx={{ mt: 3, mb: 2 }}
+                sx={{ mt: 3, mb: 2, backgroundColor: "rgb(77,1,77)" }}
               >
                 Sign In
               </Button>
               <Grid container>
                 <Grid item>
-                  <Link to="/signup" variant="body2" sx={{ cursor: "pointer" }}>
+                  <Link
+                    to="/signup"
+                    variant="body2"
+                    sx={{ cursor: "pointer", color: "blue" }}
+                  >
                     {"Don't have an account? Sign Up"}
                   </Link>
                 </Grid>

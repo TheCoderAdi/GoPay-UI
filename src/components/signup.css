@@ -2,18 +2,17 @@
   display: flex;
   flex-direction: column;
   width: 100%;
-  gap: 10px;
 }
 
 .signUpInput {
   padding: 0.6rem;
   border-radius: 5px;
-  border: 1px solid #ff7113;
+  border: 1px solid rgb(77, 1, 77);
   outline: none;
 }
 
 legend {
-  font-size: 12px;
+  font-size: 1rem;
   color: gray;
 }
 
@@ -25,7 +24,7 @@ span {
 }
 
 .signUpInput:invalid[focused="true"] {
-  border: 1px solid red;
+  border: 1px solid none;
 }
 
 .signUpInput:invalid[focused="true"] ~ span {
@@ -38,7 +37,7 @@ span {
   justify-content: center;
   min-height: 100vh;
   width: 100%;
-  background: linear-gradient(rgba(255, 255, 255, 0.7), #ff7113);
+  background: #f4f0e8;
   background-size: cover;
   background-position: center;
 }
@@ -49,6 +48,8 @@ span {
   border-radius: 10px;
   width: 30vw;
   box-shadow: 0 0 10px #1f1f39;
+  display: grid;
+  place-items: center;
 }
 
 .signUpForm > h1 {
