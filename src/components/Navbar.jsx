@@ -5,14 +5,8 @@ import CloseIcon from "@mui/icons-material/Close";
 import logo from "../assests/plogo.png";
 import { Button } from "@mui/material";
 
-const Navbar = () => {
+const Navbar = ({ login }) => {
   const [Mobile, setMobile] = useState(false);
-  const [login, setLogin] = useState(false);
-
-  setTimeout(() => {
-    setLogin(true);
-  }, 6000);
-
   return (
     <>
       <nav className="navbar">

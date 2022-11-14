@@ -12,7 +12,7 @@ const Card = () => {
         <div className="cardSection">
           <div className="cards">
             <div className="card_img">
-              <img src={buyC} alt="Buy Currency" />
+              <img src={buyC} alt="Buy Currency" loading="lazy" />
             </div>
             <div className="card_text">
               <p>
@@ -27,7 +27,7 @@ const Card = () => {
         <div className="cardSection bgColor">
           <div className="cards dir bgColor">
             <div className="card_img">
-              <img src={spotcash} alt="Buy Currency" />
+              <img src={spotcash} alt="Buy Currency" loading="lazy" />
             </div>
             <div className="card_text">
               <p>
@@ -42,7 +42,7 @@ const Card = () => {
         <div className="cardSection">
           <div className="cards">
             <div className="card_img">
-              <img src={wallet} alt="Buy Currency" />
+              <img src={wallet} alt="Buy Currency" loading="lazy" />
             </div>
             <div className="card_text">
               <p>
@@ -57,7 +57,7 @@ const Card = () => {
         <div className="cardSection bgColor">
           <div className="cards dir bgColor">
             <div className="card_img">
-              <img src={localStore} alt="Buy Currency" />
+              <img src={localStore} alt="Buy Currency" loading="lazy" />
             </div>
             <div className="card_text">
               <p>

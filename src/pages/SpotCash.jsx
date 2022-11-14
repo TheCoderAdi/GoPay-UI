@@ -15,34 +15,42 @@ import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const BuyCurrency = () => {
+const SpotCash = () => {
   const [form, setForm] = useState({
     city: "",
-    currencyHave: "",
-    currencyWant: "",
-    forexAmount: "",
+    country: "",
+    amount: "",
+    date: "",
+    timeslot: "",
   });
-  const [rate, setRate] = useState("0.00");
-  const [dRate, setDrate] = useState("0.00");
+  const [rate, setRate] = useState(0);
+  const [currency, setCurrency] = useState("");
+
   useEffect(() => {
-    const { currencyWant, forexAmount } = form;
+    const { currencyWant, amount, city } = form;
     if (currencyWant === "USD") {
-      let newRate = forexAmount / 1.18;
+      let newRate = amount * 1.18;
       let fixedNumber = newRate.toFixed(2);
       setRate(fixedNumber);
-      setDrate("$ 1.18");
     } else if (currencyWant === "EUR") {
-      let newRate = forexAmount / 1.14;
+      let newRate = amount * 1.14;
       let fixedNumber = newRate.toFixed(2);
       setRate(fixedNumber);
-      setDrate("€ 1.14");
-    } else if (currencyWant === "AUD") {
-      let newRate = forexAmount / 1.77;
+    } else {
+      let newRate = amount * 1.77;
       let fixedNumber = newRate.toFixed(2);
       setRate(fixedNumber);
-      setDrate("$ 1.77");
+    }
+    if (city === "1" || city === "2" || city === "3") {
+      setCurrency("Australian Dollar");
+    } else if (city === "4" || city === "5" || city === "6") {
+      setCurrency("US Dollar");
+    } else if (city === "5" || city === "6" || city === "7") {
+      setCurrency("Euro");
     }
   }, [form, form.currencyWant]);
+  useEffect(() => {}, [form, form.city]);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setForm({ ...form, [name]: value });
@@ -63,8 +71,8 @@ const BuyCurrency = () => {
           <FormGroup
             sx={{
               height: "auto",
-              mt: 3,
-              mb: 3,
+              mt: 4,
+              mb: 5,
               p: 2,
               border: "2px solid black",
               borderRadius: "10px",
@@ -72,7 +80,7 @@ const BuyCurrency = () => {
             }}
           >
             <Typography variant="h5" sx={{ textAlign: "center" }}>
-              Buy Currency
+              Spot Cash Facility
             </Typography>
             <FormControl variant="standard" sx={{ mt: 2, mb: 1 }} required>
               <InputLabel id="demo-simple-select-standard-label">
@@ -93,67 +101,59 @@ const BuyCurrency = () => {
                 <MenuItem value={"9"}>Marseille </MenuItem>
               </Select>
             </FormControl>
+            <FormControl variant="standard" sx={{ mt: 2, mb: 1 }} required>
+              <TextField
+                sx={{ mt: 2, mb: 1 }}
+                label="Currency"
+                value={currency}
+                variant="standard"
+                type="text"
+                name="currencyWant"
+              />
+            </FormControl>
+            <TextField
+              value={form.amount}
+              onChange={handleChange}
+              label="Amount"
+              variant="standard"
+              name="amount"
+              type="number"
+              required
+            />
             <FormControl sx={{ mt: 2, mb: 1 }} required>
               <Grid container columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
                 <Grid item xs={6}>
                   <FormControl variant="standard" fullWidth required>
-                    <InputLabel id="demo-simple-select-standard-label">
-                      Currency You Have
-                    </InputLabel>
-                    <Select
-                      value={form.currencyHave}
-                      name="currencyHave"
+                    <TextField
+                      sx={{ mt: 2 }}
+                      value={form.date}
                       onChange={handleChange}
-                    >
-                      <MenuItem value={"GBP"}>British Pound</MenuItem>
-                    </Select>
+                      variant="standard"
+                      type="date"
+                      name="date"
+                      required
+                    />
                   </FormControl>
                 </Grid>
                 <Grid item xs={6}>
                   <FormControl variant="standard" fullWidth required>
                     <InputLabel id="demo-simple-select-standard-label">
-                      Currency You Want
+                      Timeslot
                     </InputLabel>
                     <Select
-                      value={form.currencyWant}
-                      name="currencyWant"
+                      value={form.timeslot}
+                      name="timeslot"
                       onChange={handleChange}
                     >
-                      <MenuItem value={"AUD"}>Australian Dollar</MenuItem>
-                      <MenuItem value={"EUR"}>Euro</MenuItem>
-                      <MenuItem value={"USD"}>US Dollar</MenuItem>
+                      <MenuItem value={"MOR"}>Morning</MenuItem>
+                      <MenuItem value={"AFT"}>Afternoon</MenuItem>
+                      <MenuItem value={"EVE"}>Evening</MenuItem>
                     </Select>
                   </FormControl>
                 </Grid>
               </Grid>
             </FormControl>
-            <TextField
-              sx={{ mt: 2, mb: 1 }}
-              label="Forex amount"
-              value={form.forexAmount}
-              onChange={handleChange}
-              variant="standard"
-              type="number"
-              name="forexAmount"
-            />
-            <TextField
-              value={rate}
-              onChange={handleChange}
-              label="Base amount"
-              variant="standard"
-              type="number"
-            />
-
-            <Typography
-              sx={{
-                mt: 1,
-                backgroundColor: "#f4f0e8",
-                color: "#000",
-              }}
-            >
-              Rate {dRate}
-            </Typography>
-            <Typography variant="h6" sx={{ mt: 2, mb: 2 }}>
+            <Typography variant="h6" sx={{ mt: 1, mb: 1 }}>
               Total Amount
               <br /> £ {rate}
             </Typography>
@@ -162,7 +162,7 @@ const BuyCurrency = () => {
               variant="contained"
               sx={{ background: "rgb(77,1,77)", mb: 1 }}
             >
-              Book This Order
+              Submit
             </Button>
           </FormGroup>
 
@@ -184,4 +184,10 @@ const BuyCurrency = () => {
   );
 };
 
-export default BuyCurrency;
+export default SpotCash;
+// {
+//   /* <LocationOnOutlinedIcon fontSize="medium" /> */
+// }
+// {
+//   /* Select City */
+// }

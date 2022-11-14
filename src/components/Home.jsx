@@ -16,7 +16,7 @@ const Home = () => {
             </p>
           </div>
           <div className="rightBox">
-            <img src={bannerImg} alt="banner" />
+            <img src={bannerImg} alt="banner" loading="lazy" />
           </div>
         </div>
       </Wrapper>
