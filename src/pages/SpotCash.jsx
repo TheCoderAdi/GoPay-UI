@@ -27,19 +27,22 @@ const SpotCash = () => {
   const [currency, setCurrency] = useState("");
 
   useEffect(() => {
-    const { currencyWant, amount, city } = form;
-    if (currencyWant === "USD") {
+    const { amount, city } = form;
+    console.log(currency);
+    if (currency === "US Dollar") {
       let newRate = amount * 1.18;
       let fixedNumber = newRate.toFixed(2);
       setRate(fixedNumber);
-    } else if (currencyWant === "EUR") {
+    } else if (currency === "Euro") {
       let newRate = amount * 1.14;
       let fixedNumber = newRate.toFixed(2);
       setRate(fixedNumber);
-    } else {
+    } else if (currency === "Australian Dollar") {
       let newRate = amount * 1.77;
       let fixedNumber = newRate.toFixed(2);
       setRate(fixedNumber);
+    } else {
+      setRate(0);
     }
     if (city === "1" || city === "2" || city === "3") {
       setCurrency("Australian Dollar");
@@ -48,8 +51,7 @@ const SpotCash = () => {
     } else if (city === "5" || city === "6" || city === "7") {
       setCurrency("Euro");
     }
-  }, [form, form.currencyWant]);
-  useEffect(() => {}, [form, form.city]);
+  }, [form, currency]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -108,7 +110,7 @@ const SpotCash = () => {
                 value={currency}
                 variant="standard"
                 type="text"
-                name="currencyWant"
+                name="currency"
               />
             </FormControl>
             <TextField

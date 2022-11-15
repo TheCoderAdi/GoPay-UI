@@ -7,6 +7,9 @@ import Footer from "./components/Footer";
 import BuyCurrency from "./pages/BuyCurrency";
 import { useState } from "react";
 import SpotCash from "./pages/SpotCash";
+import Wallet from "./pages/Wallet";
+import PaymentMethod from "./pages/PaymentMethod";
+import DebitCard from "./pages/DebitCard";
 
 function App() {
   const [login, setLogin] = useState(false);
@@ -22,6 +25,9 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/buy-currency" element={<BuyCurrency />} />
         <Route path="/spotcash" element={<SpotCash />} />
+        <Route path="/wallet" element={<Wallet />} />
+        <Route path="/wallet/payment-method" element={<PaymentMethod />} />
+        <Route path="/debitcard-payment" element={<DebitCard />} />
       </Routes>
       <Footer />
     </Router>

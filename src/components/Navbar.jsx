@@ -40,8 +40,8 @@ const Navbar = ({ login }) => {
               <Link to="/local-store-finder">
                 <li>Local Store Finder</li>
               </Link>
-              <Link to="/customer-support">
-                <li>Customer Support</li>
+              <Link to="/dashboard">
+                <li>Dashborad</li>
               </Link>
             </>
           )}
