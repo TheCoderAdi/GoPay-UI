@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
-import logo from "../assests/plogo.png";
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
+import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
 
 const Navbar = ({ login }) => {
   const [Mobile, setMobile] = useState(false);
@@ -11,16 +11,18 @@ const Navbar = ({ login }) => {
     <>
       <nav className="navbar">
         <Link to="/">
-          <img
-            src={logo}
-            alt="logo"
+          <div
             style={{
-              width: "50px",
-              aspectRatio: "1/1",
-              marginLeft: "1rem",
-              borderRadius: "48px 45px 8px 8px ",
+              marginLeft: "10px",
+              display: "grid",
+              gridTemplateColumns: "1fr 1fr",
+              placeItems: "center",
+              color: "#000",
             }}
-          />
+          >
+            <Typography>GoPay</Typography>
+            <AccountBalanceWalletOutlinedIcon sx={{ fontSize: "2rem" }} />
+          </div>
         </Link>
         <ul
           className={Mobile ? "nav-links-mobile" : "nav-links"}
