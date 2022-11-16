@@ -26,25 +26,21 @@ const Navbar = ({ login }) => {
           className={Mobile ? "nav-links-mobile" : "nav-links"}
           onClick={() => setMobile(false)}
         >
-          {login && (
-            <>
-              <Link to="/buy-currency">
-                <li>Buy Currency</li>
-              </Link>
-              <Link to="/spotcash">
-                <li>Spot Cash</li>
-              </Link>
-              <Link to="/wallet">
-                <li>Wallet</li>
-              </Link>
-              <Link to="/local-store-finder">
-                <li>Local Store Finder</li>
-              </Link>
-              <Link to="/dashboard">
-                <li>Dashborad</li>
-              </Link>
-            </>
-          )}
+          <Link to="/buy-currency">
+            <li>Buy Currency</li>
+          </Link>
+          <Link to="/spotcash">
+            <li>Spot Cash</li>
+          </Link>
+          <Link to="/wallet">
+            <li>Wallet</li>
+          </Link>
+          <Link to="/local-store-finder">
+            <li>Local Store Finder</li>
+          </Link>
+          <Link to="/dashboard">
+            <li>Dashborad</li>
+          </Link>
           <Link to="/login">
             <li>
               <Button variant="contained" sx={{ backgroundColor: "#ff7113" }}>

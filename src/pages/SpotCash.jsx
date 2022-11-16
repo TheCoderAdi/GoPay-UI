@@ -48,7 +48,7 @@ const SpotCash = () => {
       setCurrency("Australian Dollar");
     } else if (city === "4" || city === "5" || city === "6") {
       setCurrency("US Dollar");
-    } else if (city === "5" || city === "6" || city === "7") {
+    } else if (city === "7" || city === "8" || city === "9") {
       setCurrency("Euro");
     }
   }, [form, currency]);
@@ -64,6 +64,9 @@ const SpotCash = () => {
     setTimeout(() => {
       toast.success("Order placed successfully");
     }, 3000);
+    setForm({ city: "", country: "", amount: "", date: "", timeslot: "" });
+    setRate(0);
+    setCurrency("");
   };
 
   return (
@@ -111,6 +114,9 @@ const SpotCash = () => {
                 variant="standard"
                 type="text"
                 name="currency"
+                InputProps={{
+                  readOnly: true,
+                }}
               />
             </FormControl>
             <TextField

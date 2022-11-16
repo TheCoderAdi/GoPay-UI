@@ -2,6 +2,7 @@ import {
   Button,
   Container,
   FormGroup,
+  InputAdornment,
   TextField,
   Typography,
 } from "@mui/material";
@@ -39,6 +40,11 @@ const Wallet = () => {
               onChange={handleChange}
               label="Amount"
               variant="standard"
+              InputProps={{
+                startAdornment: (
+                  <InputAdornment position="start">$</InputAdornment>
+                ),
+              }}
               name="amount"
               type="number"
               required
@@ -49,7 +55,10 @@ const Wallet = () => {
               sx={{ background: "rgb(77,1,77)", mt: 3 }}
             >
               {amount !== "" ? (
-                <Link to="payment-method" style={{ color: "#fff" }}>
+                <Link
+                  to="payment-method"
+                  style={{ color: "#fff", width: "100%" }}
+                >
                   Proceed
                 </Link>
               ) : (

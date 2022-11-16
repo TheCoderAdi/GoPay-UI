@@ -31,6 +31,14 @@ const DebitCard = () => {
   };
   const handleOnSubmit = (e) => {
     e.preventDefault();
+    setCard({
+      cardType: "",
+      cardNumber: "",
+      holderName: "",
+      expiryMonth: "",
+      expiryYear: "",
+    });
+    setSecurityCode("");
   };
   return (
     <>
@@ -183,7 +191,7 @@ const DebitCard = () => {
                   value={securityCode}
                   onChange={handleChangeSecurity}
                   variant="outlined"
-                  type="number"
+                  type="password"
                   name="securityCode"
                   required
                 />

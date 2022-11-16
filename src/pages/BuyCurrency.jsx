@@ -54,6 +54,9 @@ const BuyCurrency = () => {
     setTimeout(() => {
       toast.success("Order placed successfully");
     }, 3000);
+    setForm({ city: "", currencyHave: "", currencyWant: "", forexAmount: "" });
+    setRate("0.00");
+    setDrate("0.00");
   };
 
   return (
@@ -141,6 +144,9 @@ const BuyCurrency = () => {
               onChange={handleChange}
               label="Base amount"
               variant="standard"
+              InputProps={{
+                readOnly: true,
+              }}
               type="number"
             />
 
