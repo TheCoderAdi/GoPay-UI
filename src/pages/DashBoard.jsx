@@ -1,51 +1,118 @@
 import {
   Button,
   Container,
+  FormControl,
   Grid,
   InputAdornment,
+  InputLabel,
+  MenuItem,
+  Select,
   TextField,
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
+import React, { useState } from "react";
 import SearchIcon from "@mui/icons-material/Search";
 const DashBoard = () => {
+  const [create, setCreate] = useState("");
+  const handleChange = (e) => {
+    setCreate(e.target.value);
+  };
   return (
     <>
-      <Container maxWidth="lg" sx={{ minHeight: "80vh", p: 3 }}>
+      <Container maxWidth="md">
         <Typography variant="h3">Dashboard</Typography>
-        <Typography variant="h6" sx={{ mb: 4 }}>
+        <Typography variant="h6" sx={{ mb: 2 }}>
           Welcome Back Subha
         </Typography>
-        <Grid container columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-          <Grid item xs={6}>
-            <Box component="div" sx={{ border: "2px solid #000" }}>
-              <Grid container columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                <Grid item xs={8}>
-                  <Typography variant="h6">Wallet Balance</Typography>
-                  <Typography variant="h5">$0</Typography>
-                </Grid>
-                <Grid item xs={4} sx={{ margin: "auto" }}>
-                  <Button variant="contained">TRANSFER FUND</Button>
-                </Grid>
-              </Grid>
-            </Box>
+        <FormControl variant="standard" sx={{ width: "15%", mb: 2 }}>
+          <InputLabel id="demo-simple-select-label">Create new</InputLabel>
+          <Select value={create} onChange={handleChange}>
+            <MenuItem value={1}>Wallet</MenuItem>
+            <MenuItem value={2}>Transaction</MenuItem>
+          </Select>
+        </FormControl>
+        <Box
+          component="div"
+          sx={{
+            border: "1px solid black",
+            color: "#fff",
+            p: 1,
+            background: "green",
+          }}
+        >
+          <Typography variant="h5" sx={{ textAlign: "center" }}>
+            Current Balance(Total)
+          </Typography>
+          <Typography variant="h4" sx={{ textAlign: "center", pt: 2 }}>
+            $ 27,000
+          </Typography>
+        </Box>
+        <Box
+          component="div"
+          sx={{
+            mt: 2,
+            p: 2,
+            border: "1px solid black",
+            color: "#fff",
+            background: "grey",
+          }}
+        >
+          <Grid
+            container
+            rowSpacing={1}
+            columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+          >
+            <Grid item xs={4} sx={{ margin: "auto" }}>
+              <Typography>UBL Account</Typography>
+              <Typography>Account Number: XXXX XXXX XXXX</Typography>
+            </Grid>
+            <Grid item xs={4}>
+              <Typography
+                variant="h6"
+                sx={{ margin: "auto", textAlign: "center" }}
+              >
+                Balance
+              </Typography>
+              <Typography
+                variant="h6"
+                sx={{ margin: "auto", pt: 2, textAlign: "center" }}
+              >
+                $ 27,000
+              </Typography>
+            </Grid>
+            <Grid item xs={4}>
+              <Button
+                variant="contained"
+                color="success"
+                sx={{ mb: 1, width: "100%" }}
+              >
+                View Transaction
+              </Button>
+              <Button
+                variant="contained"
+                sx={{ background: "#fff", color: "#000", mb: 1, width: "100%" }}
+              >
+                Explore Account Info
+              </Button>
+              <Button variant="contained" color="error" sx={{ width: "100%" }}>
+                Delete Account
+              </Button>
+            </Grid>
           </Grid>
-          <Grid item xs={6}>
-            <Box component="div" sx={{ border: "2px solid #000" }}>
-              <Grid container columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-                <Grid item xs={8.5}>
-                  <Typography variant="h6">No. of Refferals</Typography>
-                  <Typography variant="h5">0</Typography>
-                </Grid>
-                <Grid item xs={3} sx={{ margin: "auto" }}>
-                  <Button variant="contained">SHARE LINK</Button>
-                </Grid>
-              </Grid>
-            </Box>
+        </Box>
+        <Box component="div" sx={{ border: "2px solid #000", mt: 2, p: 2 }}>
+          <Grid container columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
+            <Grid item xs={6}>
+              <Typography variant="h6">No. of Refferals</Typography>
+              <Typography variant="h5">0</Typography>
+            </Grid>
+            <Grid item xs={6} sx={{ margin: "auto" }}>
+              <Button variant="contained">SHARE LINK</Button>
+            </Grid>
           </Grid>
-        </Grid>
-        <Typography variant="h5" sx={{ m: 5 }}>
+        </Box>
+        <Typography variant="h5" sx={{ mt: 2, mb: 2 }}>
           List of your refferals
         </Typography>
         <TextField

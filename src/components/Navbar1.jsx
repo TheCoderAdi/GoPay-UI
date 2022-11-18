@@ -5,7 +5,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { Button, Typography } from "@mui/material";
 import AccountBalanceWalletOutlinedIcon from "@mui/icons-material/AccountBalanceWalletOutlined";
 
-const Navbar = () => {
+const Navbar1 = () => {
   const [Mobile, setMobile] = useState(false);
   return (
     <>
@@ -43,23 +43,13 @@ const Navbar = () => {
           <Link to="/dashboard">
             <li>Dashborad</li>
           </Link>
-          <Link to="/login">
+          <Link to="/">
             <li>
               <Button
                 variant="contained"
                 sx={{ backgroundColor: "rgb(77,1,77)" }}
               >
-                Login
-              </Button>
-            </li>
-          </Link>
-          <Link to="/signup">
-            <li>
-              <Button
-                variant="contained"
-                sx={{ backgroundColor: "rgb(77,1,77)" }}
-              >
-                Signup
+                Log out
               </Button>
             </li>
           </Link>
@@ -74,4 +64,4 @@ const Navbar = () => {
     </>
   );
 };
-export default Navbar;
+export default Navbar1;
