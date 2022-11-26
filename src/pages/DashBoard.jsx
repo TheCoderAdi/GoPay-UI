@@ -1,37 +1,22 @@
 import {
   Button,
   Container,
-  FormControl,
   Grid,
   InputAdornment,
-  InputLabel,
-  MenuItem,
-  Select,
   TextField,
   Typography,
   Box
 } from "@mui/material";
-import React, { useState } from "react";
+import React from "react";
 import SearchIcon from "@mui/icons-material/Search";
 const DashBoard = () => {
-  const [create, setCreate] = useState("");
-  const handleChange = (e) => {
-    setCreate(e.target.value);
-  };
   return (
     <>
       <Container maxWidth="md">
         <Typography variant="h3">Dashboard</Typography>
         <Typography variant="h6" sx={{ mb: 2 }}>
-          Welcome Back Subha
+          Welcome Back Aditya
         </Typography>
-        <FormControl variant="standard" sx={{ width: "15%", mb: 2 }}>
-          <InputLabel id="demo-simple-select-label">Create new</InputLabel>
-          <Select value={create} onChange={handleChange}>
-            <MenuItem value={1}>Wallet</MenuItem>
-            <MenuItem value={2}>Transaction</MenuItem>
-          </Select>
-        </FormControl>
         <Box
           component="div"
           sx={{
